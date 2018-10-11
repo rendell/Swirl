@@ -1,17 +1,14 @@
 - Class: meta
-  Course: A (very) short introduction to R
-  Lesson: Module 1
-  Author: Claudia Brauer
+  Course: World Statistics Day Intro to R
+  Lesson: Centrale Bank van Aruba
+  Author: Rendell E. de Kort
   Type: Standard
-  Organization: Wageningen University - Hydrology and Quantitative Water Management Group
-  Version: 0
+  Organization: Lovely Data
+  Version: 1.0
 
 - Class: text  
-  Output: This is the first module of the course `A (very) short introduction to R`. This course is based on a non-interactive tutorial with the same name, which can be downloaded from www.github.com/ClaudiaBrauer/A-very-short-introduction-to-R. The contents are the same (with a few exceptions), so you can open the pdf version alongside to look up how to do something you learned before or browse through the references on the last two pages.
+  Output: This is the first module of the course World Statistics Day Intro to R. This course is based on a tutorial by Claudia Brauer, which can be downloaded from www.github.com/ClaudiaBrauer/A-very-short-introduction-to-R. The contents are similar (with a few exceptions), so you can open the pdf version alongside to look up how to do something you learned before or browse through the references on the last two pages.
 
-- Class: text  
-  Output: This swirl course is brand new, so it may still contain errors. If you find any, let me know on the issues page of the github-website.
-  
 - Class: text  
   Output: Now, let's get started.
   
