@@ -1,0 +1,204 @@
+- Class: meta
+  Course: A (very) short introduction to R
+  Lesson: Module 1
+  Author: Claudia Brauer
+  Type: Standard
+  Organization: Wageningen University - Hydrology and Quantitative Water Management Group
+  Version: 0
+
+- Class: text  
+  Output: This is the first module of the course `A (very) short introduction to R`. This course is based on a non-interactive tutorial with the same name, which can be downloaded from www.github.com/ClaudiaBrauer/A-very-short-introduction-to-R. The contents are the same (with a few exceptions), so you can open the pdf version alongside to look up how to do something you learned before or browse through the references on the last two pages.
+
+- Class: text  
+  Output: This swirl course is brand new, so it may still contain errors. If you find any, let me know on the issues page of the github-website.
+  
+- Class: text  
+  Output: Now, let's get started.
+  
+- Class: text  
+  Output: The RStudio interface consists of several windows. You can change the size of the windows by dragging the grey bars between the windows. 
+  
+- Class: text  
+  Output: Bottom left is the console window (also called command window/line). Here you can type commands after the > prompt and R will then execute your command. This is the most important window, because this is where R actually does stuff. 
+
+- Class: text  
+  Output: Top left is the editor window (also called script window). Here collections of commands (scripts) can be edited and saved. When you do not get this window, you can open it with 'File' > 'New' > 'R script'. Just typing a command in the editor window is not enough, it has to get into the command window before R executes the command. If you want to run a line from the script window (or the whole script), you can click 'Run' or press 'CTRL+ENTER' to send it to the command window.
+
+- Class: text  
+  Output: Top right is the workspace / history window. In the workspace window you can see which data and values R has in its memory. You can view and edit the values by clicking on them. The history window shows what has been typed before. 
+
+- Class: text  
+  Output: Bottom right is the files / plots / packages / help / viewer window. Here you can open files, view plots (also previous plots), install and load packages or use the help function. 
+
+- Class: text  
+  Output: Your working directory is the folder on your computer in which you are currently working. When you ask R to open a certain file, it will look in the working directory for this file, and when you tell R to save a data file or figure, it will save it in the working directory.
+
+- Class: text  
+  Output: Before you start working, you should set your working directory to where all your data and script files are or should be stored. Within RStudio you can go to 'Session' > 'Set working directory' > 'Choose directory'. Please do this now.
+  
+- Class: text  
+  Output: Instead of clicking, you can also type in the command window setwd("directoryname"). For example setwd("M:/Hydrology/R/") . Make sure that the slashes are forward slashes and that you do not forget the apostrophes (for the reason of the apostrophes, see Module 3. R is case sensitive, so make sure you write capitals where necessary. You don't have to try this now.
+  
+- Class: text  
+  Output: R can do many statistical and data analyses. They are organized in so-called packages or libraries. With the standard installation, most common packages are installed.  
+
+- Class: text  
+  Output: To get a list of all installed packages, go to the packages window. If the box in front of the package name is ticked, the package is loaded (activated) and can be used. Look up the swirl package in the packages window and see if the box is checked.
+  
+- Class: text  
+  Output: There are many more packages available on the R website. If you want to install and use a package (for example, the package called 'geometry') you should first install the package by clicking 'install packages' in the packages window and typing geometry or by typing install.packages("geometry") in the command window. You actually already did this for the swirl package. 
+
+- Class: text  
+  Output: Next, you should load the package by checking box in front of geometry or typing library(geometry) in the command window. You also did this for the swirl package (otherwise you couldn't have been doing these exercises). 
+
+- Class: text
+  Output: Now, let's get started with the real programming. 
+  
+- Class: cmd_question
+  Output: R can be used as a calculator. You can just type your equation in the command window after the >. Type 10^2 + 36.
+  CorrectAnswer: 10^2 + 36
+  AnswerTests: omnitest(correctExpr='10^2 + 36') 
+  Hint: 10^2 + 36.
+
+- Class: text
+  Output: And R gave the answer directly. By the way, spaces do not matter.
+
+- Class: cmd_question 
+  Output: Compute the difference between 2017 and the year you started at this university and divide this by the difference between 2017 and the year you were born. Multiply this with 100 to get the percentage of your life you have spent at this university. Use brackets if you need them.
+  CorrectAnswer: (2017-2002)/(2017-1984)*100
+  AnswerTests: val_has_length(1)
+
+- Class: text  
+  Output: If you use brackets and forget to add the closing bracket, the > on the command line changes into a +. The + can also mean that R is still busy with some  heavy computation. If you want R to quit what it was doing and give back the >, press ESC (see the reference list on the last page of `A (very) short introduction to R`). 
+
+- Class: cmd_question  
+  Output: You can also give numbers a name. By doing so, they become so-called variables which can be used later. For example, you can type in the command window A = 4 .
+  CorrectAnswer: A = 4
+  AnswerTests: omnitest(correctExpr='A=4') 
+  
+- Class: text  
+  Output: You can see that A appeared in the workspace window in the top right corner, which means that R now remembers what A is.
+  
+- Class: text
+  Output: Some people prefer te use <- instead of =. They do the same thing. <- consists of two characters, namely < and -, and represents an arrow pointing at the object receiving the value of the expression. 
+  
+- Class: cmd_question
+  Output: You can also ask R what A is. Just type A in the command window.
+  CorrectAnswer: A
+  AnswerTests: omnitest(correctExpr='A') 
+  
+- Class: cmd_question
+  Output: You can also do calculations with A. Type A * 5 .
+  CorrectAnswer: A*5 
+  AnswerTests: omnitest(correctExpr='A*5')
+
+- Class: cmd_question
+  Output: If you specify A again, it will forget what value it had before. You can also assign a new value to A using the old one. Type A = A + 10 .
+  CorrectAnswer: A = A + 10  
+  AnswerTests: omnitest(correctExpr= 'A = A + 10') 
+
+- Class: text  
+  Output: You can see that the value in the workspace window changed.
+  
+- Class: cmd_question
+  Output: To remove all variables from R's memory, type rm(list=ls()) .
+  CorrectAnswer: rm(list=ls()) 
+  AnswerTests: omnitest(correctExpr='rm(list=ls())')
+  
+- Class: text
+  Output: You see that the workspace window is now empty. You can also click the broom icon (`clear all`) in the workspace window. You can see that RStudio then empties the workspace window. If you only want to remove the variable A, you can type rm(A).
+
+#- Class: cmd_question 
+#  Output: 
+#Repeat the previous ToDo, but with several steps in between. You can give the variables any name you want, but the name has to start with a letter. 
+#  CorrectAnswer: x 
+#  AnswerTests: omnitest(correctExpr='x') 
+#  Hint: x.
+
+- Class: text
+  Output: Like in many other programs, R organizes numbers in scalars (a single number, 0-dimensional), vectors (a row of numbers, also called arrays, 1-dimensional) and matrices (like a table, 2-dimensional).
+
+- Class: cmd_question
+  Output: The A you defined before was a scalar. To define a vector with the numbers 3, 4 and 5, you need the function c, which is short for concatenate (paste together). Type (or copy-paste) B=c(3,4,5) .
+  CorrectAnswer: B=c(3,4,5) 
+  AnswerTests: omnitest(correctExpr='B=c(3,4,5)')
+
+- Class: text
+  Output: Matrices and other 2-dimensional structures will be introduced later.
+
+- Class: cmd_question
+  Output: If you would like to compute the mean of all the elements in the vector B from the example above, you could type (3+4+5)/3. Try this
+  CorrectAnswer: mean((3+4+5)/3)
+  AnswerTests: omnitest(correctExpr='(3+4+5)/3')
+  
+- Class: text  
+  Output: But when the vector is very long, this is very boring and time-consuming work. This is why things you do often are automated in so-called functions. Some functions are standard in R or in one of the packages. You can also program your own functions (you'll do that later). 
+  
+- Class: cmd_question
+  Output: When you use a function to compute a mean, type mean(x=B)
+  CorrectAnswer: mean(x=B)
+  AnswerTests: omnitest(correctExpr='mean(x=B)')
+
+- Class: cmd_question
+  Output: Within the brackets you specify the arguments. Arguments give extra information to the function. In this case, the argument x says of which set of numbers (vector) the mean should computed (namely of B). Sometimes, the name of the argument is not necessary; mean(B) works as well. Try it.
+  CorrectAnswer: mean(B)
+  AnswerTests: omnitest(correctExpr='mean(B)')
+  Hint: type mean(b)
+
+- Class: cmd_question   
+  Output: Compute the sum of 4, 5, 8 and 11 by first combining them into a vector and then using the function sum. Use the function c inside the function sum.
+  CorrectAnswer: sum(c(4,5,8,11)) 
+  AnswerTests: omnitest(correctExpr='sum(c(4,5,8,11))') 
+  Hint: Type sum(c(4,5,8,11)) 
+
+- Class: cmd_question
+  Output: The function rnorm, as another example, is a standard R function which creates random samples from a normal distribution. Type rnorm(10) and you will see 10 random numbers
+  CorrectAnswer: rnorm(10)
+  AnswerTests: omnitest(correctExpr='rnorm(10)')
+
+- Class: text
+  Output: Here rnorm is the function and the 10 is an argument specifying how many random numbers you want - in this case 10 numbers (typing n=10 instead of just 10 would also work). The result is 10 random numbers organised in a vector with length 10.
+
+- Class: cmd_question
+  Output: Entering the same command again produces 10 new random numbers. Instead of typing the same text again, you can also press the upward arrow key (uparrow) to access previous commands. Try this.
+  CorrectAnswer: rnorm(10)
+  AnswerTests: omnitest(correctExpr='rnorm(10)')
+
+- Class: cmd_question
+  Output: If you want 10 random numbers out of normal distribution with mean 1.2 and standard deviation 3.4 you can type rnorm(10, mean=1.2, sd=3.4). Try this.
+  CorrectAnswer: rnorm(10, mean=1.2, sd=3.4)
+  AnswerTests: omnitest(correctExpr='rnorm(10, mean=1.2, sd=3.4)')
+  
+- Class: text
+  Output: This shows that the same function (rnorm) may have different interfaces and that R has so called named arguments (in this case mean and sd).
+
+- Class: cmd_question
+  Output: Comparing this example to the previous one also shows that for the function rnorm only the first argument (the number 10) is compulsory, and that R gives default values to the other so-called optional arguments. Use the help function to see which values are used as default by typing ?rnorm. 
+  CorrectAnswer: ?rnorm  
+  AnswerTests: omnitest(correctExpr='?rnorm')
+
+- Class: text
+  Output: You see the help page for this function in the help window on the right. RStudio has a nice feature. When you type rnorm( in the command window and press TAB, RStudio will show the possible arguments.
+
+- Class: cmd_question
+  Output: You can also store the output of the function in a variable. Type x=rnorm(100).
+  CorrectAnswer: x=rnorm(100)  
+  AnswerTests: omnitest(correctExpr='x=rnorm(100)')
+  
+- Class: text  
+  Output: Now 100 random numbers are assigned to the variable x, which becomes a vector by this operation.You can see it appear in the workspace window.  
+  
+- Class: cmd_question
+  Output: R can also make graphs. Type plot(x) for a very simple example. 
+  CorrectAnswer: plot(x)
+  AnswerTests: omnitest(correctExpr='plot(x)')
+  
+- Class: text  
+  Output: The 100 random numbers are now plotted in the plots window on the right.
+
+- Class: text  
+  Output: You now learned some basic R commands. We will look into more detail in the next two modules of `A (very) short introduction to R`.
+
+
+
+
